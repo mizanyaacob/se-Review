@@ -1,4 +1,4 @@
-﻿import { CircleCheck, Gavel, School, Users } from 'lucide-react'
+import { CircleCheck, Gavel, School, Users } from 'lucide-react'
 import { motion } from 'motion/react'
 import { WantedPanel } from '../components/ChapterIntro'
 import { FourQuestions } from '../components/FourQuestions'
@@ -185,6 +185,17 @@ function OutreachScene({ beat, accent }: SceneProps) {
                 </div>
               ))}
             </div>
+          </Reveal>
+          {/* hidden below xl: the right column would otherwise push the diagram off a 1024-wide screen */}
+          <Reveal show={beat >= 2} delay={0.1} className="hidden xl:block">
+            <ul className="space-y-2.5 pt-1">
+              {organizational.outcomes.map((o) => (
+                <li key={o} className="flex gap-3 text-[1.02rem] leading-snug text-dim">
+                  <span aria-hidden className="mt-2 size-1.5 shrink-0 rounded-full" style={{ background: accent }} />
+                  {o}
+                </li>
+              ))}
+            </ul>
           </Reveal>
           <Reveal show={result} delay={0.45}>
             <p className="pt-2 text-[1.1rem] leading-snug text-dim">“{organizational.why}”</p>

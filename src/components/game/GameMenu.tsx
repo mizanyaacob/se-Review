@@ -1,7 +1,7 @@
 import { ArrowRight, CircleCheck, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
-import { achievements, chapterById, quests, type ChapterId, type QuestStatus } from '../../data/selfEvaluation'
+import { achievements, chapterById, glance, quests, type ChapterId, type GoalChapterId, type QuestStatus } from '../../data/selfEvaluation'
 import { sfx } from '../../lib/sfx'
 import { COLORS, EASE_OUT, cn, hexA, pad2 } from '../../lib/utils'
 import { AchievementBadge } from './AchievementBadge'
@@ -53,7 +53,7 @@ export function GameMenu({ open, tab, onTab, onClose, currentChapter, unlocked, 
             role="dialog"
             aria-modal="true"
             aria-label="Game menu"
-            className="glass flex h-[min(640px,86vh)] w-full max-w-5xl flex-col overflow-hidden rounded-2xl"
+            className="glass flex h-[min(760px,88vh)] w-full max-w-5xl flex-col overflow-hidden rounded-2xl"
             initial={{ y: 24, scale: 0.98 }}
             animate={{ y: 0, scale: 1 }}
             exit={{ y: 12, opacity: 0 }}
@@ -169,6 +169,7 @@ export function GameMenu({ open, tab, onTab, onClose, currentChapter, unlocked, 
 function QuestDetail({ id, unlocked, onFastTravel }: { id: keyof typeof quests; unlocked: string[]; onFastTravel: () => void }) {
   const meta = chapterById(id)
   const q = quests[id]
+  const g = glance[id as GoalChapterId]
   const rewards = achievements.filter((a) => a.chapter === id)
 
   return (
@@ -185,10 +186,30 @@ function QuestDetail({ id, unlocked, onFastTravel }: { id: keyof typeof quests; 
         </span>
       </div>
 
-      <p className="mono-label mt-7">Objective</p>
+      <p className="mono-label mt-6">Objective</p>
       <p className="mt-2 max-w-[60ch] text-[1.05rem] text-dim">{q.objective}</p>
 
-      <p className="mono-label mt-7">Result</p>
+      {/* the target, horizon and measure as written in the review */}
+      <dl className="mt-4 grid gap-x-7 gap-y-3 rounded-xl border border-line p-4 sm:grid-cols-3">
+        <div>
+          <dt className="mono-label">Target set</dt>
+          <dd className="mt-1 text-[0.94rem] leading-snug text-dim">{g.target}</dd>
+        </div>
+        {g.timeline && (
+          <div>
+            <dt className="mono-label">Timeline</dt>
+            <dd className="mt-1 text-[0.94rem] leading-snug text-dim">{g.timeline}</dd>
+          </div>
+        )}
+        {g.tracking && (
+          <div>
+            <dt className="mono-label">How I tracked it</dt>
+            <dd className="mt-1 text-[0.94rem] leading-snug text-dim">{g.tracking}</dd>
+          </div>
+        )}
+      </dl>
+
+      <p className="mono-label mt-6">Result</p>
       <ul className="mt-3 space-y-2">
         {q.result.map((r) => (
           <li key={r} className="flex items-center gap-3 text-[1.05rem]">
@@ -198,7 +219,7 @@ function QuestDetail({ id, unlocked, onFastTravel }: { id: keyof typeof quests; 
         ))}
       </ul>
 
-      <p className="mono-label mt-7">Rewards</p>
+      <p className="mono-label mt-6">Rewards</p>
       <div className="mt-3 flex flex-wrap gap-2">
         {rewards.map((a) => (
           <span key={a.id} className={cn('rounded-full border px-3 py-1 text-[0.86rem]', unlocked.includes(a.id) ? 'border-line-2 text-paper' : 'border-line text-faint')}>

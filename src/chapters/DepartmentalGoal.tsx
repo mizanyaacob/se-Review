@@ -1,4 +1,4 @@
-﻿import { motion } from 'motion/react'
+import { motion } from 'motion/react'
 import { ChapterIntro } from '../components/ChapterIntro'
 import { DevOpsPipeline } from '../components/DevOpsPipeline'
 import { FourQuestions } from '../components/FourQuestions'
@@ -115,11 +115,23 @@ function ResultsScene({ beat, accent }: SceneProps) {
         </Reveal>
       </div>
 
-      <Reveal show={beat >= 1} blur className="mt-12">
-        <p className="display max-w-[28ch] text-[clamp(2.4rem,4.2vw,4.4rem)]">
-          I became an engineer who understands more of <span style={{ color: accent }}>the pipeline around the code I write.</span>
-        </p>
-      </Reveal>
+      <div className="mt-10 grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+        <Reveal show={beat >= 1} blur>
+          <p className="display max-w-[24ch] text-[clamp(2.1rem,3.5vw,3.6rem)]">
+            I became an engineer who understands more of <span style={{ color: accent }}>the pipeline around the code I write.</span>
+          </p>
+        </Reveal>
+        <ul className="space-y-3">
+          {departmental.outcomes.map((o, i) => (
+            <Reveal as="li" key={o} show={beat >= 1} delay={0.25 + i * 0.18} x={20} y={0}>
+              <span className="flex gap-3 text-[clamp(1.02rem,1.35vw,1.22rem)] leading-snug text-dim">
+                <span aria-hidden className="mt-2 size-1.5 shrink-0 rounded-full" style={{ background: accent }} />
+                {o}
+              </span>
+            </Reveal>
+          ))}
+        </ul>
+      </div>
     </Stage>
   )
 }

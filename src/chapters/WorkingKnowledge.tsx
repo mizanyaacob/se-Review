@@ -1,4 +1,4 @@
-﻿import { ArrowRight, BookOpen, CircleCheck, GraduationCap, Trophy, Users, Wrench } from 'lucide-react'
+import { ArrowRight, BookOpen, CircleCheck, GraduationCap, Trophy, Users, Wrench } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useState } from 'react'
 import { CertificateCarousel } from '../components/CertificateCarousel'
@@ -466,7 +466,8 @@ function ToolbeltScene({ beat, mountBeat, accent }: SceneProps) {
           <div className="h-full rounded-2xl border border-line p-6">
             <p className="mono-label">Why they exist</p>
             <p className="mt-3 text-[1.2rem] leading-snug">{working.toolOrigin}</p>
-            <p className="mt-2 text-[1.05rem] text-dim">Custom solutions, instead of relying on plugins.</p>
+            <p className="mt-2 text-[1.05rem] text-dim">{working.toolPurpose}</p>
+            <p className="mt-1 text-[1.05rem] text-faint">Custom solutions, instead of relying on plugins.</p>
           </div>
         </Reveal>
       </div>

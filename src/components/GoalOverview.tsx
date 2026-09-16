@@ -4,7 +4,7 @@ import { useEffect, type ReactNode } from 'react'
 import { sfx } from '../lib/sfx'
 import { StartHero } from '../chapters/Opening'
 import { beatsPerChapter, scenes, scenesPerChapter } from '../chapters'
-import { chapters, epilogue, person, type ChapterMeta } from '../data/selfEvaluation'
+import { chapters, epilogue, glance, person, type ChapterMeta, type GoalChapterId } from '../data/selfEvaluation'
 import { useScrollProgress } from '../hooks/useScrollProgress'
 import { EASE_OUT, cn, hexA, pad2 } from '../lib/utils'
 import { SHORTCUTS } from './game/shortcuts'
@@ -167,6 +167,17 @@ function ChapterRow({ meta, onOpen, scenesCount, beats }: { meta: ChapterMeta; o
                 <p className="mt-4 font-mono text-[0.64rem] tracking-[0.18em] uppercase" style={{ color: meta.accent }}>
                   → {ARC[meta.id]}
                 </p>
+              )}
+              {/* the target I wrote down against where the goal actually landed */}
+              {meta.goal && (
+                <dl className="mt-5 grid max-w-[54ch] grid-cols-[3.4rem_1fr] gap-x-4 gap-y-1.5 border-t border-line pt-4">
+                  <dt className="mono-label pt-0.5">Target</dt>
+                  <dd className="text-[0.98rem] text-dim">{glance[meta.id as GoalChapterId].target}</dd>
+                  <dt className="mono-label pt-0.5" style={{ color: meta.accent }}>
+                    Result
+                  </dt>
+                  <dd className="text-[0.98rem]">{glance[meta.id as GoalChapterId].result}</dd>
+                </dl>
               )}
             </div>
           </div>

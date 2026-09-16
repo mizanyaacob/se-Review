@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Single source of truth for every fact shown in the presentation.
  * Everything here is taken from Amizan_Self_Evaluation_Review_2026.pdf.
  * Components only arrange and animate this data; they must not add facts.
@@ -134,6 +134,7 @@ export const working = {
     { id: 'vfx', name: 'VFX Forge', area: 'VFX', description: 'Lets non-VFX artists create their own visual effects.' },
   ],
   toolOrigin: 'Built whenever I spotted a repetitive task or a gap in our workflow.',
+  toolPurpose: 'Systems and tools my team keeps using, to improve productivity and reduce iteration time.',
   challenges: [
     { title: 'Limited Unity-specific support', body: 'The studio is primarily Unreal-focused, so there were very few people to ask early on.' },
     { title: 'Trial and error', body: 'Many Unity-specific problems had to be solved through self-directed learning.' },
@@ -187,7 +188,7 @@ export const retaining = {
     { name: 'Syarif', from: 'Unity workflow', to: 'Independent work', role: 'Teammate' },
     { name: 'Irfan', from: 'New joiner', to: 'Unity workflow', role: 'New joiner' },
   ],
-  alsoShared: ['Programmer Weeklies: project status updates', 'Biweekly updates: team resourcing status'],
+  alsoShared: ['Programmer Weeklies: project status updates', 'Biweekly updates: team resourcing status', 'Passion Wiki: session materials uploaded and archived'],
   metrics: [
     { value: 2, label: 'Teammates ramped up on Unity', context: 'Syarif and Irfan' },
     { value: 3, label: 'Engineers Weekly sessions', context: 'Target was 2' },
@@ -242,6 +243,10 @@ export const departmental = {
     { display: 'LIVE', label: 'Automated build' },
   ],
   message: 'I became an engineer who understands more of the pipeline around the code I write.',
+  outcomes: [
+    'Hands-on understanding of build agents, pipelines and automation, from real project work rather than theory alone.',
+    'From not understanding the basic terminology to maintaining and troubleshooting the pipeline on my own.',
+  ],
   recap: {
     wanted: 'Understand DevOps well enough to assist when needed.',
     happened: 'Chris offered me the BKT CI/CD pipeline.',
@@ -264,6 +269,10 @@ export const organizational = {
     { id: 'uitm', name: 'UiTM Puncak Alam Game Showcase', role: 'Volunteer', note: 'Extending my involvement beyond my own university.' },
   ],
   why: 'I would be happy to see more fresh grads, especially my juniors, find a place in the game industry.',
+  outcomes: [
+    'Engaged students directly by judging and taking part, a more active contribution than a one-off talk.',
+    'Built visibility for Passion Republic among a wider student audience than originally planned.',
+  ],
   metrics: [
     { value: 3, label: 'Outreach events', context: 'Target was 1 session' },
     { value: 1, label: 'Game jam judged', context: 'IIUM' },
@@ -328,6 +337,52 @@ export const briefings: Record<GoalChapterId, Briefing> = {
       { label: 'My approach', text: 'Attend and conduct sharing sessions, share my industry experience, and attract more potential talent to apply to Passion Republic.' },
       { label: 'The timeline', text: 'A long-term goal over the next 2–3 years, starting with at least one sharing session this year.' },
     ],
+  },
+}
+
+/* ------------------------------------------------------------------ */
+/* At a glance — the target I set, how I tracked it, where it landed   */
+/* ------------------------------------------------------------------ */
+
+export interface Glance {
+  /** The target as written in the review. */
+  target: string
+  /** What the goal actually became by the end of the year. */
+  result: string
+  /** How I said I would measure it. Only where the review names a method. */
+  tracking?: string
+  /** The horizon I gave the goal in the review. */
+  timeline?: string
+}
+
+export const glance: Record<GoalChapterId, Glance> = {
+  working: {
+    target: 'Continuous improvement',
+    result: '4 courses, Unity migration, 7 tools built, PAC Token Prize',
+    tracking: 'Minutes or hours spent daily on Udemy tutorials and practical development.',
+    timeline: 'A continuous journey rather than a fixed-duration goal.',
+  },
+  retaining: {
+    target: '2 Engineers Weekly sessions',
+    result: '3 sessions delivered, 2 teammates onboarded to Unity',
+    tracking: 'Sessions presented, with the materials uploaded and archived on the Passion Wiki.',
+    timeline: 'At least two knowledge-sharing sessions by the end of the year.',
+  },
+  personal: {
+    target: 'Hike 1 mountain of 500m+',
+    result: 'Hiked Mount Alai (700m+) and took up camping',
+    timeline: 'Within this year: at least one hike of a 500m mountain or hill.',
+  },
+  departmental: {
+    target: 'General understanding of DevOps',
+    result: 'Built and maintain the BKT CI/CD pipeline in TeamCity',
+    tracking: 'A roadmap and checklist of DevOps skills and knowledge to acquire.',
+    timeline: 'An ongoing journey in a very different skillset, aiming for a general understanding this year.',
+  },
+  organizational: {
+    target: 'At least 1 sharing session',
+    result: '3 outreach events, including judging the IIUM Game Jam',
+    timeline: 'A long-term goal over the next 2-3 years, starting with one session this year.',
   },
 }
 

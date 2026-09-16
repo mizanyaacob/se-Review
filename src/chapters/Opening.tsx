@@ -101,7 +101,7 @@ function ThePlanScene({ beat }: SceneProps) {
             <Kicker>Act 1 · The plan</Kicker>
           </Reveal>
           <Reveal delay={0.1} blur>
-            <h1 className="display mt-6 text-[clamp(3rem,5.4vw,5.8rem)]">I thought this year would be about getting better at the engine.</h1>
+            <h1 className="display mt-6 text-[clamp(3rem,5.4vw,5.8rem)]">I thought this year would be about getting better at Unreal Engine.</h1>
           </Reveal>
           <Reveal show={interrupted} className="mt-12" blur>
             <p className="text-[clamp(1.9rem,3.2vw,3rem)] font-medium tracking-tight">

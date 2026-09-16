@@ -26,7 +26,7 @@ export interface ChapterMeta {
 
 export const chapters: ChapterMeta[] = [
   { id: 'prologue', label: 'Prologue', title: 'The Plan Changed', subtitle: 'I had a plan for this year. Then the project changed.', accent: '#E9E6DF' },
-  { id: 'working', goal: 1, label: 'Working Knowledge', title: 'Working Knowledge', subtitle: 'Growing as an engineer through an engine migration', accent: '#F5A83C' },
+  { id: 'working', goal: 1, label: 'Working Knowledge', title: 'Working Knowledge', subtitle: 'Growing as an engineer through an Unreal to Unity migration', accent: '#F5A83C' },
   { id: 'retaining', goal: 2, label: 'Retaining Experience', title: 'Retaining Experience', subtitle: 'Sharing knowledge instead of keeping it to myself', accent: '#A5B4FC' },
   { id: 'personal', goal: 3, label: 'Personal', title: 'Getting Back Outdoors', subtitle: 'An engineer is still a person', accent: '#86D9A8' },
   { id: 'departmental', goal: 4, label: 'Departmental', title: 'Learning DevOps from the Ground Up', subtitle: 'Understanding the pipeline around the code I write', accent: '#67D4E6' },
@@ -48,7 +48,7 @@ export interface FourQuestions {
 /* ------------------------------------------------------------------ */
 
 export const originalPlan = [
-  'Deepen my engine knowledge',
+  'Deepen my Unreal Engine knowledge',
   'Become more independent',
   'Build tools for the team',
   'Retain what I learn by sharing it',
@@ -67,7 +67,7 @@ export const productionQuestions = [
 
 export const working = {
   goal: 'Gain deeper knowledge of Unreal Engine, or any engine and tools the project needs. Become more independent. Improve my overall engineering knowledge.',
-  wantedShort: ['Deeper engine knowledge', 'More independence', 'Systems that consider future needs', 'Tools the team keeps using'],
+  wantedShort: ['Deeper Unreal Engine knowledge', 'More independence', 'Systems that consider future needs', 'Tools the team keeps using'],
   learningLoop: ['Question', 'Learning', 'Experiment', 'Implementation', 'Problem', 'Rebuild', 'Better understanding', 'Reusable tool'],
   migrationStates: [
     { state: 'Unknown', note: 'The studio is mostly Unreal-focused. Little internal Unity support.' },
@@ -163,7 +163,7 @@ export const working = {
     { value: 1, label: 'Token Prize', context: 'Won as a team at PAC' },
   ],
   recap: {
-    wanted: 'Deeper engine knowledge and more independence.',
+    wanted: 'Deeper Unreal Engine knowledge and more independence.',
     happened: 'The project migrated from Unreal to Unity.',
     did: 'Self-studied, rebuilt systems, and built tools.',
     changed: 'More versatile, with reusable tools the team can use.',
@@ -300,7 +300,7 @@ export const briefings: Record<GoalChapterId, Briefing> = {
   working: {
     heading: 'Where the year started',
     blocks: [
-      { label: 'Starting point', text: 'Our project was built on Unreal, so I started the year on Unreal Engine courses, going deeper into the engine the project needed.' },
+      { label: 'Starting point', text: 'Our project was built on Unreal, so I started the year on Unreal Engine courses, going deeper into Unreal Engine, the engine the project needed.' },
       { label: 'The turn', text: 'A few months in, the project migrated to Unity. Most of the studio’s expertise is in Unreal, so there wasn’t much internal support to lean on.' },
       { label: 'My approach', text: 'Take the initiative: switch to Unity courses, self-teach through trial and error, and build my own tools instead of relying on plugins.' },
       { label: 'Why it matters', text: 'It makes me more versatile, able to contribute across a wider range of game types and problem domains, not just familiar systems.' },

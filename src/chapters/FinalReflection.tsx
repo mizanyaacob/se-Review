@@ -215,7 +215,7 @@ function CreditsScene({ accent }: SceneProps) {
 
         <dl className="mt-24 w-full space-y-12">
           {credits.map((c) => (
-            <div key={c.role}>
+            <div key={c.name}>
               <dt className="font-mono text-[0.76rem] tracking-[0.22em] text-faint uppercase">{c.role}</dt>
               <dd className="mt-2 text-[clamp(1.5rem,2.4vw,2.2rem)] font-semibold tracking-tight">{c.name}</dd>
             </div>

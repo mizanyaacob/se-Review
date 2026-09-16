@@ -405,6 +405,7 @@ export const loadingTips: Record<ChapterId, string> = {
 export const credits: Array<{ role: string; name: string }> = [
   { role: 'Story & presentation', name: 'Muhammad Amizan' },
   { role: 'Continuous guidance', name: 'Lin · Senior Game Engineer' },
+  { role: 'Continuous guidance', name: 'Yong Siang · Senior Engineer' },
   { role: 'Engine migration partner', name: 'Syarif' },
   { role: 'DevOps guidance', name: 'Chris' },
   { role: 'Newest party member', name: 'Irfan' },
